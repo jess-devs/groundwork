@@ -94,6 +94,17 @@ named what the script would post and to whom, and left the criterion blocked.
 The paragraph on one kind of content per artifact moved out of `SKILL.md`; it
 was already in `validation.md`.
 
+**The validation line died because `N` was expensive, and "what's left?" was
+answered from memory.** Counting the applicable checklist items by hand was
+right three or four times per session and then became "30 tests pass" or
+disappeared. `check_docs.py --count <file>` now prints `N` and the blocks it
+came from. `--status docs/` prints each story's status and the current result
+of every criterion (the last row wins), listing everything that is not the
+most common result; on one real repository that is 94 lines instead of a
+210 KB log, and it shows the 37 rows still at "pass in part". In a small
+repository both versions found a stale "verified" story by reading the files;
+the gain is at the size where reading stops working.
+
 ## 0.7.0 - 2026-09-02
 
 The first version whose changes come from a premortem: not from a case that

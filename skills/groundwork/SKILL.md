@@ -302,7 +302,8 @@ It reports identifiers that nothing defines or that are defined twice,
 requirements no story covers, stories with no criterion, decisions missing from
 the index, and pointers to files that are not there. Fix what it reports before
 presenting. A clean run is not a validated artifact: whether a criterion is
-observable or a requirement invented is still read by hand.
+observable or a requirement invented is still read by hand. When the user asks
+what is left, answer from `check_docs.py --status docs/`, not from memory.
 
 End every artifact presentation with this line, in the working language:
 
@@ -310,8 +311,8 @@ End every artifact presentation with this line, in the working language:
 >
 > In Spanish: Validación: N comprobaciones pasan, M corregidas (<qué>), K abiertas (<qué>).
 
-`N` is the count of checklist items that apply to the artifact (the `Every
-artifact` block plus the block for that file), fixed before you start. `M` and
+`N` is the count of checklist items that apply to the artifact: run
+`check_docs.py --count <file>`. `M` and
 `K` always name what they count, unless they are zero. The results go in the
 line, never into the artifact. Closing a story updates `04-calidad.md` and
 `historias.md`, so it ends with the same line.
