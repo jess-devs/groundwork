@@ -105,6 +105,16 @@ most common result; on one real repository that is 94 lines instead of a
 repository both versions found a stale "verified" story by reading the files;
 the gain is at the size where reading stops working.
 
+**A change nobody made is a question, not a fact.** While these changes were
+being written, the checker was reformatted on disk by the user's editor; the
+agent called it deliberate, committed it, and a stray keystroke saved a
+second later broke the file. The same move, deciding on a guess instead of on
+evidence, is behind several failures in the sessions. When something changes
+that the agent did not change, it now finds out what changed it before going
+on, and never commits it as deliberate on a guess. Unmeasured: in a short run
+with an obvious stray edit, both versions committed only their own line and
+flagged the rest; neither looked for what had written it.
+
 ## 0.7.0 - 2026-09-02
 
 The first version whose changes come from a premortem: not from a case that

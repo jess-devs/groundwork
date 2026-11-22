@@ -37,6 +37,10 @@ before implementing a story, open the story; before verifying a criterion, open
 the criterion and `AGENTS.md`. If `AGENTS.md` does not carry the three rules,
 fix that before continuing.
 
+When something changes that you did not change (a file on disk, a test result,
+a branch), find out what changed it before going on. Never commit it or record
+it as deliberate on a guess.
+
 1. **No code without a story.** Before implementing, read the story and its
    acceptance criteria in `features/<slug>/historias.md`. If no story covers the
    change, stop and ask whether to write one.
