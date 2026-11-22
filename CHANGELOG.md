@@ -63,6 +63,16 @@ and when the run ends there is one sync pass before the commit. In a two-turn
 small-model run ending in "that's it, commit", 0.7.0 committed the colour
 change with no decision recorded; this version recorded it first.
 
+**Approval happened outside the chat, and the skill only recognised it
+inside.** Users approved by merging pull requests, or handed decisions over
+for a night; every document stayed "draft" on disk forever, and one overnight
+run wrote the code first and the criteria after, fitted to it. An approval now
+changes the status on disk in the same turn; a merge counts as approval once
+the user says so, recorded in `00-contexto.md`; delegated work still writes
+stories before code and lists the pending decisions in one place; gates are
+never merged silently. Unmeasured: in short small-model runs 0.7.0 already
+behaved this way, and the merge case was not run.
+
 ## 0.7.0 - 2026-09-02
 
 The first version whose changes come from a premortem: not from a case that

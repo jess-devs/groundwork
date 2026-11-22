@@ -24,7 +24,7 @@ Write every artifact **and every message** in the language the user writes in.
 After a summary, re-read which language that is rather than defaulting to
 English.
 
-Never translated, so that anyone can find them without being told: file and
+Never translated: file and
 directory names (`00-contexto.md`, `features/`, `historias.md`; the feature slug
 itself is in the working language), and the mode names `new-project` / `adopt`
 / `new-feature`. Everything else is translated, including story status
@@ -41,8 +41,7 @@ fix that before continuing.
 
 1. **No code without a story.** Before implementing, read the story and its
    acceptance criteria in `features/<slug>/historias.md`. If no story covers the
-   change, stop and ask whether to write one. A change nobody wrote down is a
-   change nobody agreed to.
+   change, stop and ask whether to write one.
 
 2. **Record any decision someone could later want to reverse.** Consult
    `03-arquitectura.md` first; if the change contradicts it, stop. Otherwise
@@ -223,8 +222,15 @@ about something else is not approval.
 
 When three gates in a row come back approved with nothing corrected and nothing
 asked, say so and offer to merge the remaining stops: Phase 1 with 2, Phase 3
-with 4, each still producing both artifacts and ending in one approval. The
-artifacts are the point, not the number of stops.
+with 4, each still producing both artifacts and ending in one approval. Never
+merge them without saying so.
+
+An approval changes the document's status on disk in the same turn. If the user
+approves by merging pull requests, ask once whether a merge approves the
+documents it carries, record the answer in `00-contexto.md`, and apply it. When
+decisions are delegated ("decide yourself", an unattended run), stories and
+criteria are still written before the code, and the decisions awaiting the user
+are listed in one place for one approval on their return.
 
 If the user asks to skip a phase, comply, but in the same turn write the
 skipped artifact as a stub recording that it was skipped and which assumptions

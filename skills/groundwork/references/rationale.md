@@ -106,6 +106,8 @@ the story and `AGENTS.md` from disk costs one file read, and it is the
 difference between a contract that still holds late in a long session and one
 that quietly stopped applying while the documents went on looking healthy.
 
+Rule 1: a change nobody wrote down is a change nobody agreed to.
+
 Rule 2: small decisions are the ones that get lost, and their accumulation is
 what makes a codebase incomprehensible.
 
