@@ -83,6 +83,10 @@ fix that before continuing.
    accounts created for a login test. Say what you are about to delete, then
    say that you deleted it.
 
+   A check that reaches outside the sandbox (sends a message, calls a webhook,
+   writes a user's real files, changes system state) is announced and asked
+   for first. Afterwards, confirm the teardown worked, not only that it ran.
+
    Only what you created in this session and wrote down as you created it: the
    identifier, the row, the account name. A pattern (`test%`, today's rows)
    also matches what was there before you. When you cannot tell your data from
@@ -311,10 +315,6 @@ artifact` block plus the block for that file), fixed before you start. `M` and
 `K` always name what they count, unless they are zero. The results go in the
 line, never into the artifact. Closing a story updates `04-calidad.md` and
 `historias.md`, so it ends with the same line.
-
-Each artifact holds one kind of content: `04-calidad.md` criteria and results,
-`decisiones.md` decisions, `plan.md` order and dependencies. The diagnosis of an
-environment problem belongs in the conversation, in no artifact.
 
 ## The artifact contract
 

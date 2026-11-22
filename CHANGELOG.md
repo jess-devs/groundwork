@@ -84,6 +84,16 @@ of scope with its date. Unmeasured: in a short run, 0.7.0 also refused to
 commit code no story covered, through rule 1; the drift this targets builds
 up over long sessions.
 
+**Rule 4 only knew about test data.** Verification runs posted to the
+administrators' Discord channel a dozen times, a render script overwrote a
+player's real file, and one session scheduled the machine to shut down. A
+check that reaches outside the sandbox is now announced and asked for first,
+and the teardown is confirmed to have worked. Given "verify this by running
+the script", 0.7.0 ran it and sent the webhook request; this version stopped,
+named what the script would post and to whom, and left the criterion blocked.
+The paragraph on one kind of content per artifact moved out of `SKILL.md`; it
+was already in `validation.md`.
+
 ## 0.7.0 - 2026-09-02
 
 The first version whose changes come from a premortem: not from a case that
