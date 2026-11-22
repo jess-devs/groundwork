@@ -157,7 +157,12 @@ standing on its own is the part of the report that nobody can check.
 
 ## Before closing a story
 
-- [ ] Each criterion checked individually and recorded as pass, fail or blocked.
+- [ ] Each criterion checked individually and recorded as pass, fail or blocked,
+      never a partial result. Evidence from a stand-in (mock, self-check,
+      offscreen render) is `blocked`; what the user reports is recorded as
+      theirs.
+- [ ] Every `pass` whose code changed since it was observed is back to
+      `blocked` until observed again.
 - [ ] Every `pass` cites something observed, not something inferred. If the
       evidence is a design guarantee, a library's behaviour, or a code review,
       the result is `blocked`.

@@ -1,5 +1,58 @@
 # Changelog
 
+## Unreleased
+
+The first changes taken from real sessions rather than from a suite or a
+premortem: ten sessions across three projects, read end to end.
+
+**The checker stopped being read, because most of what it said was false.**
+Run as `check_docs.py .` from inside `docs/`, it took `docs/` for the
+repository root and never opened `AGENTS.md`; one session got seventeen
+warnings that were all this. URLs (`s3://`) and bare tokens (`//`) were taken
+for paths, and a brief the user supplied was checked as if it were an
+artifact. The same handful of false warnings, every run, taught the agent to
+filter the output with `grep -v`, after which the real ones went unread too.
+
+Fixed: the path is resolved before the root is taken; URLs and tokens with no
+word characters are not paths; `docs/referencias/` holds supplied material and
+is not checked, and the contract tree now names it.
+
+It also missed the one structural defect that lasted: a story identifier
+defined in two features, from two branches on the same day, still on the main
+branch at the end. Identifiers defined twice are now reported. Some
+repositories restart `HU-01` in every feature and others number across the
+project, and the skill never said which, so the checker reads it from the
+tree: a cross-feature repeat is a clash only when `HU-01` exists in at most
+one feature. A repeat inside one feature, or of a system-level identifier, is
+always one.
+
+**0.7.0 said the contract would not survive compaction, and it was right in a
+way it did not predict.** After a compaction the harness re-injects the skills
+in use, each cut at 20,000 characters. `SKILL.md` was about 27,000, so the
+copy the agent kept working from ended in the middle of rule 3: rule 4, the
+delegation rules, Secrets and the anti-patterns were gone for the rest of the
+session, which is where they were broken. In another session the skill was not
+re-injected at all; this change does nothing for that case, and the three rules
+in `AGENTS.md` remain the only thing that reaches it.
+
+`SKILL.md` is now about 17,000 characters. Nothing was removed from the rules;
+the argument for each one moved to `references/rationale.md`. The contract,
+the rule on keeping artifacts true, and Secrets now come before the phases, so
+if the file grows past the limit again what is lost first is the material a
+long session needs least. The file opens by naming its last section, so a cut
+copy can be recognised, and `--selftest` fails if the body passes 19,000
+characters.
+
+**A fourth result appeared on its own, and a `pass` never expired.** Across
+the sessions, "pass in part" filled dozens of rows, backed by a mock, a
+self-check or a render nobody saw on screen; a user's "it works now" was logged
+as the agent's own `pass`; and criteria stayed `pass` after the code they
+covered changed. Rule 3 now says there is no fourth result, that stand-in
+evidence is `blocked`, that what the user saw is recorded as theirs, and that
+changing covered code reopens the criterion. A blocked request is made once,
+not repeated at every closing. In a small-model run of the same change to
+covered code, 0.7.0 left both criteria at `pass`; this version reopened them.
+
 ## 0.7.0 - 2026-09-02
 
 The first version whose changes come from a premortem: not from a case that

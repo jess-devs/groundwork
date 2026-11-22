@@ -20,26 +20,42 @@ PATHISH = re.compile(r"`([^`\s]+(?:\.md|/))`")
 
 
 def check(docs):
+    docs = docs.resolve()
     root = docs.parent
-    md = sorted(docs.rglob("*.md"))
+    md =sorted(p for p in docs.rglob("*.md")
+                if "referencias" not in p.relative_to(docs).parts[:1])
     if not md:
         return ["%s holds no Markdown files" % docs]
     entry = [p for p in (root / "AGENTS.md", root / "CLAUDE.md") if p.is_file()]
     text = {p: p.read_text(encoding="utf-8") for p in md + entry}
 
-    defined = set()
+    defined, where = set(), {}
     for p in md:
-        defined |= {m.group(1) for m in HEADING.finditer(text[p])}
+        parts = p.relative_to(docs).parts
+        scope = parts[1] if parts[0] == "features" and len(parts) > 2 else ""
+        for m in HEADING.finditer(text[p]):
+            where.setdefault(m.group(1), []).append(
+                (p.relative_to(root).as_posix(), scope))
         if p.name == "historias.md":
             defined |= {i for i in ID.findall(text[p]) if i.startswith("CA-")}
+    defined |= set(where)
 
+    numbered_globally = len({s for _, s in where.get("HU-01", [])}) <= 1
     out = []
+    for ident, locs in sorted(where.items()):
+        scopes = [s for _, s in locs]
+        clash = len(scopes) > len(set(scopes)) or "" in scopes or numbered_globally
+        if len(locs) > 1 and clash:
+            out.append("%s is defined in more than one place: %s"
+                       % (ident, ", ".join(f for f, _ in locs)))
     for p in md + entry:
         rel = p.relative_to(root).as_posix()
         for missing in sorted(set(ID.findall(text[p])) - defined):
             out.append("%s: %s is referenced and defined nowhere" % (rel, missing))
         for ref in sorted(set(PATHISH.findall(text[p]))):
             if "<" in ref or "*" in ref:  # a template placeholder, not a pointer
+                continue
+            if "://" in ref or not re.search(r"\w", ref):
                 continue
             if not any((base / ref).exists() for base in (root, docs, p.parent)):
                 out.append("%s: points at %s, which does not exist" % (rel, ref))
@@ -82,7 +98,11 @@ def selftest():
             f.write_text(body, encoding="utf-8")
 
     clean = {
-        "docs/00-contexto.md": "> Estado: aprobado\n\n# Contexto\n",
+        "docs/00-contexto.md":
+            "> Estado: aprobado\n\n# Contexto\n\nDatos en `s3://bucket/`, `//`\n",
+        "docs/features/pago/historias.md":
+            "> Estado: aprobado\n\n## HU-01: pagar\n\n1. CA-01.1 se ve\n",
+        "docs/referencias/reto.md": "# Reto\n\nVer `anexo.md`, RF-77\n",
         "docs/03-arquitectura.md": "> Estado: aprobado\n\nAD-01, ver `00-contexto.md`\n",
         "docs/features/reserva/requisitos.md": "> Estado: aprobado\n\n### RF-01: pedir\n",
         "docs/features/reserva/historias.md":
@@ -100,6 +120,9 @@ def selftest():
     broken["docs/features/reserva/decisiones.md"] += "\n## AD-02: cola\n"
     broken["docs/04-calidad.md"] = "# Calidad\n\n| HU-09 | CA-09.9 | pasa |\n"
     broken["docs/00-contexto.md"] += "\nVer `05-nada.md`\n"
+    broken["docs/features/pago/historias.md"] = (
+        "> Estado: borrador\n\n## HU-02: pagar\n\n1. CA-02.1 se ve\n")
+    broken["AGENTS.md"] = "Docs in `docs/no-existe.md`\n"
     with tempfile.TemporaryDirectory() as tmp:
         base = Path(tmp)
         tree(base, broken)
@@ -110,9 +133,22 @@ def selftest():
                          "HU-09 is referenced and defined nowhere",
                          "AD-02 is missing from the index",
                          "points at 05-nada.md",
-                         "04-calidad.md: no header block"):
+                         "04-calidad.md: no header block",
+                         "HU-02 is defined in more than one place",
+                         "AGENTS.md: points at docs/no-existe.md"):
             assert any(expected in line for line in found), (expected, found)
-        assert len(found) == 7, found
+        assert len(found) == 9, found
+        import os
+        cwd = os.getcwd()
+        os.chdir(base / "docs")
+        try:
+            assert check(Path(".")) == found, check(Path("."))
+        finally:
+            os.chdir(cwd)
+
+    skill = (Path(__file__).resolve().parent.parent / "SKILL.md").read_bytes()
+    body = skill.decode("utf-8").split("---", 2)[2]
+    assert len(body) <= 19000, "SKILL.md body is %d chars; compaction cuts at 20000" % len(body)
 
 
 def main(argv):

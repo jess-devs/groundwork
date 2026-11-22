@@ -140,7 +140,7 @@ reading.
 ```
 skills/groundwork/  -> the skill itself this is what you install
   SKILL.md          -> body: routing, gates, contract, execution rules
-  references/       -> interview banks, templates, methodology, checklist
+  references/       -> interview banks, templates, methodology, checklist, rationale
   scripts/          -> check_docs.py, the structural checker for docs/
 CHANGELOG.md        -> every rule, and the failure that produced it
 ```
