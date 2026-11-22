@@ -1,5 +1,9 @@
 # Artifact templates
 
+With a filesystem, artifacts go to `docs/`. Without one, produce the same
+Markdown in the conversation, one document per message, naming the file each
+block belongs to.
+
 Use these structures exactly. Translate the headings into the user's working
 language; keep the file names fixed.
 

@@ -111,9 +111,19 @@ agent called it deliberate, committed it, and a stray keystroke saved a
 second later broke the file. The same move, deciding on a guess instead of on
 evidence, is behind several failures in the sessions. When something changes
 that the agent did not change, it now finds out what changed it before going
-on, and never commits it as deliberate on a guess. Unmeasured: in a short run
-with an obvious stray edit, both versions committed only their own line and
-flagged the rest; neither looked for what had written it.
+on, and never commits it as deliberate on a guess.
+
+The first wording asked for the outcome ("find out what changed it") and named
+no way to get there; in a small-model run the agent wrote "I need to figure
+out where it came from", then "I can't explain it from the context", and
+stopped. The test had a flaw too: nothing in it could be found. The rule now
+names where to look (the diff, when it changed, an editor or formatter, a hook,
+another session or agent) and what to hand back (the cause with its evidence,
+or what was checked). Rerun with an editor config that formats on save and a
+file modified after the agent's edit, 0.7.0 committed its own line and named no
+cause; this version found the timestamp and the editor settings, attributed
+the reformatting to the editor, and said the typo was something no formatter
+writes. The paragraph on working without a filesystem moved to `templates.md`.
 
 ## 0.7.0 - 2026-09-02
 

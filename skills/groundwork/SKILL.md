@@ -38,8 +38,11 @@ the criterion and `AGENTS.md`. If `AGENTS.md` does not carry the three rules,
 fix that before continuing.
 
 When something changes that you did not change (a file on disk, a test result,
-a branch), find out what changed it before going on. Never commit it or record
-it as deliberate on a guess.
+a branch), find out what changed it before going on: look at the diff, when it
+changed, and what could have written it (an editor or formatter, a hook,
+another session or agent). Report the cause with its evidence, or what you
+checked and could not find. Never commit it or record it as deliberate on a
+guess.
 
 1. **No code without a story.** Before implementing, read the story and its
    acceptance criteria in `features/<slug>/historias.md`. If no story covers the
@@ -185,10 +188,6 @@ this session, say so plainly and recommend rotating it.
 ## Step 0: mode and environment
 
 One look at the workspace and, at most, one question.
-
-**Environment.** With a filesystem, artifacts go to `docs/`. Without one,
-produce the same Markdown in the conversation, one document per message,
-naming the file each block belongs to.
 
 **Scale.** The process is not needed when the change is smaller than its
 documentation would be: a script, a one-file utility, a throwaway spike, a
