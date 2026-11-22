@@ -134,6 +134,15 @@ most common result; on one real repository that is 94 lines instead of a
 repository both versions found a stale "verified" story by reading the files;
 the gain is at the size where reading stops working.
 
+`--status` was wrong on the first real repository it met. A row covering a
+range ("CA-02.1 to CA-02.4 | blocked") was keyed by its first criterion only,
+so when CA-02.1 later passed, the other three disappeared from the count: 28
+blocked instead of 39. 0.7.0, asked the same question on the same 210 KB log,
+wrote its own script, expanded the ranges and got 39. Ranges and lists in the
+criterion cell are now expanded. The planned split of `04-calidad.md` into a
+current-state file and a history was dropped: on that log the agent read the
+current result correctly without it, and the defect was in the tool.
+
 **A change nobody made is a question, not a fact.** While these changes were
 being written, the checker was reformatted on disk by the user's editor; the
 agent called it deliberate, committed it, and a stray keystroke saved a

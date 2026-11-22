@@ -131,6 +131,14 @@ def count(artifact, checklist=None):
     return total, used
 
 
+def criteria(cell):
+    found = []
+    for m in re.finditer(r"\bCA-(\d+)\.(\d+)(?:\s*(?:a|to|-|–)\s*CA-\1\.(\d+))?", cell):
+        story, first, last = m.group(1), int(m.group(2)), int(m.group(3) or m.group(2))
+        found += ["CA-%s.%d" % (story, n) for n in range(first, last + 1)]
+    return found
+
+
 def status(docs):
     docs = docs.resolve()
     out = []
@@ -149,9 +157,8 @@ def status(docs):
         quality.read_text(encoding="utf-8").splitlines() if quality.is_file() else []
     ):
         cells = [c.strip() for c in line.strip().strip("|").split("|")]
-        ca = re.search(r"\bCA-\d+\.\d+\b", cells[1]) if len(cells) >= 5 else None
-        if ca:
-            latest[(cells[0], ca.group())] = cells[2:5]
+        for ca in criteria(cells[1].split(":")[0]) if len(cells) >= 5 else []:
+            latest[(cells[0], ca)] = cells[2:5]
     if latest:
         tally = {}
         for result, _, _ in latest.values():
@@ -254,6 +261,8 @@ def selftest():
         assert lines[1] == "criteria by current result: pass 2, blocked 1", lines
         assert lines[2].startswith("  HU-02 CA-02.1: blocked (2026-01-02)"), lines
         assert len(lines) == 3, lines
+        assert criteria("CA-02.1 a CA-02.3") == ["CA-02.1", "CA-02.2", "CA-02.3"]
+        assert criteria("CA-01.6 y CA-01.8") == ["CA-01.6", "CA-01.8"]
 
     skill = (Path(__file__).resolve().parent.parent / "SKILL.md").read_bytes()
     body = skill.decode("utf-8").split("---", 2)[2]
