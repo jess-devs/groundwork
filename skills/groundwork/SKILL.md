@@ -159,10 +159,11 @@ fix that artifact in the same turn:
   now, and name the file.
 - The user drops something from scope → move it to out of scope, with the date.
 
-Check this before every commit or pull request that touches governed code,
-after a merge, and when the user closes the session: compare what changed since
-the last check with `historias.md`, `plan.md` and `04-calidad.md`, and run the
-checker. The user should never have to ask for the documents to catch up.
+Check this before every commit or pull request, after a merge, and when the
+user closes the session: read the whole diff since `docs/` was last updated
+(`git diff $(git log -1 --format=%h -- docs/)`), not the commit messages,
+compare each change with the criteria, scope and plan it touches, and run the
+checker.
 
 Say what you updated when you present. Two artifacts that contradict each
 other are a defect, and the older one is usually the wrong one.

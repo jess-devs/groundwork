@@ -85,7 +85,10 @@ one will find it.
 Writing forward is easy; going back is what gets skipped. In seven of ten
 real sessions the user had to ask for the documents to be brought up to date,
 and promises like "I'll note that for later" lived only in the conversation
-until the user reminded the agent of them. A plan that now
+until the user reminded the agent of them. The user should never have to ask
+for the documents to catch up. The check reads diffs because commit messages
+undersell: a commit called "minor cleanup" removed a feature a criterion still
+required. A plan that now
 describes a sequence nobody followed is not fixed by recording the reason
 elsewhere, and an index missing entries is worse than no index.
 

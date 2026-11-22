@@ -70,8 +70,11 @@ run wrote the code first and the criteria after, fitted to it. An approval now
 changes the status on disk in the same turn; a merge counts as approval once
 the user says so, recorded in `00-contexto.md`; delegated work still writes
 stories before code and lists the pending decisions in one place; gates are
-never merged silently. Unmeasured: in short small-model runs 0.7.0 already
-behaved this way, and the merge case was not run.
+never merged silently. The first runs showed no difference because they had
+no merge in them. With one (a merged pull request, documents still "draft",
+the user saying only "I accepted the PR"), 0.7.0 flipped the documents to
+approved on its own and offered to undo it; this version left them as they
+were and asked whether a merge approves the documents it carries.
 
 **In seven of ten sessions the user had to ask for the documents to catch
 up.** "Keep the earlier artifacts true" fired on divergences seen in the
@@ -80,9 +83,16 @@ promises like "I'll note it for later" were never written anywhere. The
 documents are now checked against what changed before every commit or pull
 request, after a merge and at the close of a session; a promise is written
 down when it is made, with the file named; scope the user drops goes to out
-of scope with its date. Unmeasured: in a short run, 0.7.0 also refused to
-commit code no story covered, through rule 1; the drift this targets builds
-up over long sessions.
+of scope with its date.
+
+The first wording said "compare what changed since the last check", and the
+first tests had three commits, where both versions read the log and caught the
+drift. With thirty commits and the change buried in one called "minor
+cleanup", both versions missed it: the new one read only what it was about to
+commit. Told to read `git log -p`, it ran `--stat` and cut the output at
+sixty lines. The rule now gives one command, the whole diff since `docs/` last
+changed, which is short and shows the removed call directly; with it the agent
+named the commit, the criterion it broke, and asked which one was wrong.
 
 **Rule 4 only knew about test data.** Verification runs posted to the
 administrators' Discord channel a dozen times, a render script overwrote a
