@@ -100,6 +100,21 @@ fix that before continuing.
 Verifying acceptance criteria is in scope. Designing a test suite, choosing a
 testing framework or writing automated tests is not.
 
+### When the user is iterating
+
+A run of small changes to one surface (layout, copy, styling, a prompt) is one
+piece of work, not a story per tweak. On the first tweak, name the story it
+belongs to, or offer one umbrella story, and set the criteria the tweaks can
+change to `blocked` until observed again. Then iterate without ceremony.
+
+When the run ends (the user moves on, asks for a commit or a PR, or about ten
+tweaks have piled up), do one sync pass before anything else: record the
+decisions taken, rewrite the criteria that changed, observe them, update scope
+and plan, and end with the validation line.
+
+For visual work, offer a throwaway prototype before writing stories: approving
+a screen says more than approving a document that describes it.
+
 ### When another skill writes the code
 
 While another skill drives, this contract stops being applied.

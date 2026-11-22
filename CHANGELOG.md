@@ -53,6 +53,16 @@ changing covered code reopens the criterion. A blocked request is made once,
 not repeated at every closing. In a small-model run of the same change to
 covered code, 0.7.0 left both criteria at `pass`; this version reopened them.
 
+**Iterating had two options, a story per tweak or nothing, and agents chose
+nothing.** Sixty interface tweaks and forty-four commits in one session went
+through with no story and no decision, until another skill noticed the
+documents described a screen that no longer existed. The user had already
+refused ceremony per tweak. Now the first tweak names the story it belongs to
+and reopens the criteria it can change, the tweaks go through without stops,
+and when the run ends there is one sync pass before the commit. In a two-turn
+small-model run ending in "that's it, commit", 0.7.0 committed the colour
+change with no decision recorded; this version recorded it first.
+
 ## 0.7.0 - 2026-09-02
 
 The first version whose changes come from a premortem: not from a case that
