@@ -94,6 +94,25 @@ sixty lines. The rule now gives one command, the whole diff since `docs/` last
 changed, which is short and shows the removed call directly; with it the agent
 named the commit, the criterion it broke, and asked which one was wrong.
 
+**Nobody asked who would read the documents.** A hackathon's documents turned
+out to be for a jury: the team section listed only one person's work, the
+user's name appeared some fifty times as a source, and a later attempt to
+remove it rewrote commit authors into someone else's account. The interview now
+asks who besides agents will read the documents; provenance is recorded by kind
+of source, never by name; the team section uses roles unless the user asks for
+names, and asks about the audience either way; changing a commit's author is an
+anti-pattern. Given three names to add, 0.7.0 wrote them and never asked; this
+version wrote them because the user asked, and asked who reads the file.
+A first wording that refused names even when the user gave them was dropped:
+the agent obeyed the user anyway, and it was right to.
+
+Rules the user states for the repository now go in a House rules section of
+`AGENTS.md`, in the turn they are said; they had lived in memory and were lost
+across sessions. Given "commits never carry a co-author", 0.7.0 added it to
+`AGENTS.md` and also filed it as a feature decision; this version put it in its
+own section. Two anti-patterns covered elsewhere in `SKILL.md` and one sentence
+already in `validation.md` were removed to stay under the size limit.
+
 **Rule 4 only knew about test data.** Verification runs posted to the
 administrators' Discord channel a dozen times, a render script overwrote a
 player's real file, and one session scheduled the machine to shut down. A

@@ -58,7 +58,12 @@ Technical, temporal, budgetary, regulatory. Only constraints the user stated.
 
 ## Team
 
-Solo or group. If a group, who does what.
+Solo or group. If a group, what each role contributed (backend, design,
+research). Use roles, not names, unless the user asks for the names; either
+way, ask who will read these documents, because a name in a commit stays in the
+history. If you know only some
+contributions, say the rest is not recorded; never list part of the team as the
+whole of it.
 
 ## Methodology
 
@@ -328,12 +333,21 @@ changing code.
 - A criterion is verified by observation. What could not be observed is recorded
   as blocked, not as passed.
 
+## House rules
+
+- <a rule the user gave for this repository, in their words>
+
 ## Artifacts from other tools
 
 | Artifact | What it governs                       |
 | -------- | ------------------------------------- |
 | `<path>` | `<what it decides, and who wrote it>` |
 ```
+
+House rules hold what the user said must always or never happen in this
+repository (commits, branches, authorship, tools), added in the turn they say
+it. A rule kept only in the conversation or in an agent's memory is gone at the
+next compaction or the next tool. Keep the section only if it has rules.
 
 Keep the last table only if another skill or tool wrote artifacts of its own.
 Every row must point at a file that exists; an entry point with a broken pointer

@@ -54,6 +54,9 @@ than choosing one.
 **Team.** Solo or with others? If others, how is work divided, and is there a
 review step?
 
+**Audience.** Besides agents, who will read these documents: a jury, a client,
+a public repository? Ask before the first artifact names anyone.
+
 **Done.** How will you know this was worth building? What has to be true for you
 to call the first version finished?
 
@@ -96,6 +99,10 @@ Both are valid inputs, but only the first is a constraint of theirs; the second
 is your proposal that they did not reject. Write it as such, "chose among the
 alternatives offered", so that a reader months later does not mistake a default
 for a requirement.
+
+Record who stated something by the kind of source (the user, the team, an
+external document, the assistant), never by a person's name. A name in a
+versioned document is published with it.
 
 ## What not to ask
 

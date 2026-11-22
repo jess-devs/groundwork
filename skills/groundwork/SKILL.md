@@ -351,21 +351,21 @@ approval instead.
 
 Write it in the same turn as the first artifacts that create `docs/`, and update
 it whenever what it points at changes. Its shape is in
-`references/templates.md`. A repository with `docs/` and no `AGENTS.md` is a
-defect.
+`references/templates.md`.
 
 If it already exists, add the documentation section and the three rules and
 change nothing else: do not reorder, restructure or replace it. If the
 repository keeps its agent instructions in `CLAUDE.md` or another file tools
 read the same way, add them there instead and say which file you used. The
 three rules in `AGENTS.md` are what reaches an agent that never loaded this
-skill.
+skill. A rule the user states for the repository ("always", "never") goes in
+its House rules section in the same turn.
 
 ## Anti-patterns
 
 - Saying the assumptions instead of writing them. If you had to assume it to
   proceed, it goes in a file in the same turn.
-- Handing another skill a path instead of the criteria themselves.
+- Changing a commit's author or committer. That identity is the user's.
 - Proposing architecture, stack or patterns before requirements are approved.
   In early phases, ask whether a stack is already decided; never offer to pick
   one.
@@ -373,7 +373,6 @@ skill.
   for.
 - Inventing non-functional requirements as filler. Performance, availability
   and security targets are numbers the user gives you.
-- Writing acceptance criteria that cannot be checked.
 - Overwriting root-level artifacts when working on a feature. Feature work goes
   under `features/<slug>/`.
 - Reopening a decision already recorded in `decisiones.md` because it did not
