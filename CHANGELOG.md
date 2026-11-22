@@ -73,6 +73,17 @@ stories before code and lists the pending decisions in one place; gates are
 never merged silently. Unmeasured: in short small-model runs 0.7.0 already
 behaved this way, and the merge case was not run.
 
+**In seven of ten sessions the user had to ask for the documents to catch
+up.** "Keep the earlier artifacts true" fired on divergences seen in the
+conversation, not on a merge, a branch or a decision applied later, and
+promises like "I'll note it for later" were never written anywhere. The
+documents are now checked against what changed before every commit or pull
+request, after a merge and at the close of a session; a promise is written
+down when it is made, with the file named; scope the user drops goes to out
+of scope with its date. Unmeasured: in a short run, 0.7.0 also refused to
+commit code no story covered, through rule 1; the drift this targets builds
+up over long sessions.
+
 ## 0.7.0 - 2026-09-02
 
 The first version whose changes come from a premortem: not from a case that

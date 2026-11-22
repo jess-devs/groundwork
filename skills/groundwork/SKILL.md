@@ -8,11 +8,9 @@ metadata:
 
 # Groundwork
 
-Most agent work fails the same way: the agent starts coding from a one-line
-request, invents the missing details, and produces something plausible that
-nobody agreed to. This skill writes those details down in `docs/` before
-implementation starts, then holds implementation to them. Why each rule is
-there is in `references/rationale.md`.
+Agents invent the details a request leaves out. This skill writes them down in
+`docs/` before implementation, then holds implementation to them. Why each rule
+is there is in `references/rationale.md`.
 
 **This file ends with the section "Reference files". If the text you have ends
 before it, it was cut when the context was compacted: read this file from disk
@@ -133,8 +131,6 @@ constraints recorded in `03-arquitectura.md`. A path is not a handoff.
 4. Point to any artifacts it wrote from `AGENTS.md`, with what they govern. Do
    not rewrite them into this format.
 
-The going-in half has been measured not to hold; see the README, Limitations.
-
 ## Keep the earlier artifacts true
 
 A document describing something that did not happen is read with the same
@@ -148,6 +144,14 @@ fix that artifact in the same turn:
 - A new decision in a feature's `decisiones.md` → add it to the index in
   `03-arquitectura.md`.
 - A decision superseded → mark the old one, never delete it.
+- You say you will do something later → write it in `plan.md` or `01-alcance.md`
+  now, and name the file.
+- The user drops something from scope → move it to out of scope, with the date.
+
+Check this before every commit or pull request that touches governed code,
+after a merge, and when the user closes the session: compare what changed since
+the last check with `historias.md`, `plan.md` and `04-calidad.md`, and run the
+checker. The user should never have to ask for the documents to catch up.
 
 Say what you updated when you present. Two artifacts that contradict each
 other are a defect, and the older one is usually the wrong one.
@@ -181,8 +185,8 @@ naming the file each block belongs to.
 **Scale.** The process is not needed when the change is smaller than its
 documentation would be: a script, a one-file utility, a throwaway spike, a
 typo, a rename, one well-specified function. Say so in one line, offer the
-short path, and do the work. Judge the size of the change, not the phrasing:
-"start a new project" for a forty-line script is still a script. When it is
+short path, and do the work. Judge the size of the change, not the phrasing.
+When it is
 borderline, ask once: "this looks small enough to just build; want me to, or
 should we scope it first?"
 

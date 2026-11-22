@@ -28,7 +28,8 @@ translated while everything a person reads as a sentence is.
 ## Scale
 
 Offering the short path is not skipping the process; a process nobody can
-afford is one nobody uses.
+afford is one nobody uses. "Start a new project" for a forty-line script is
+still a forty-line script.
 
 ## Reconnaissance
 
@@ -81,7 +82,10 @@ one will find it.
 
 ## Keep the earlier artifacts true
 
-Writing forward is easy; going back is what gets skipped. A plan that now
+Writing forward is easy; going back is what gets skipped. In seven of ten
+real sessions the user had to ask for the documents to be brought up to date,
+and promises like "I'll note that for later" lived only in the conversation
+until the user reminded the agent of them. A plan that now
 describes a sequence nobody followed is not fixed by recording the reason
 elsewhere, and an index missing entries is worse than no index.
 
@@ -135,7 +139,8 @@ verified, and the decisions taken along the way are never written down. The
 stories read as untouched while the code has moved on without them. The other
 skill works from what you put in front of it, and a path is something it has to
 decide to open. A fix it applied on its own initiative is exactly the kind of
-decision rule 2 exists for.
+decision rule 2 exists for. The going-in half has been measured not to hold;
+see the README, Limitations.
 
 ## Secrets
 
