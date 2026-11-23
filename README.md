@@ -3,6 +3,8 @@
 An [Agent Skill](https://github.com/anthropics/skills) that writes down what a
 feature must do before any code exists, then holds the code to it.
 
+![9 of 11 mistakes from real agent sessions that 0.7.0 still makes and this version avoids. Trade-off over 10 runs: it mentions blocked items nobody asked about 5 times instead of 1, and repeats an unchanged blocked item 3 times instead of 1.](assets/results.svg)
+
 ## The problem
 
 Given a one-line request, an agent invents the missing details and builds
@@ -57,33 +59,31 @@ criterion is observable is still for a person to judge.
 
 ## Measured
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/results-dark.svg">
-  <img alt="How often the agent got it wrong out of 10 runs, 0.7.0 against the current version. Unexplained IDs in the validation line: 1 to 0. Repeats an unchanged blocked item: 1 to 3. Mentions blocked items nobody asked about: 1 to 5. Leaves an ID without its meaning: 7 to 9." src="assets/results-light.svg">
-</picture>
+Every change in this version started as a mistake an agent made in a real
+project. Each one was replayed with 0.7.0 and with this version, on the same
+model. In 9 of 11, 0.7.0 made the mistake again and this version didn't. With
+groundwork, your agent:
 
-This is the one behaviour measured over ten runs per version, and the current
-version does worse on three of four counts. It now reopens a criterion when the
-code it covers changes, so it has more blocked work to report, and it reports
-it. A rule written to fix this made it worse (9 of 10 runs) and was removed.
+- reopens a criterion when the code it covers changes, instead of leaving it
+  "passed"
+- writes down the decision before it commits a run of quick tweaks
+- asks whether merging a pull request approves the documents, instead of
+  assuming it
+- notices when a commit called "minor cleanup" removed a feature a criterion
+  still requires
+- asks before a check that would post to your team's real webhook
+- finds out what changed a file it didn't touch before committing it
+- asks who will read the documents before it writes anyone's name in them
+- runs a flaky model twenty times before it calls a criterion passed
+- keeps the brief or rules you hand it word for word, apart from its own files
 
-The other changes were checked once per version, each on a scenario taken from
-a failure in a real session. One run shows a difference, not a rate. In nine,
-0.7.0 failed and the current version did not:
+In the other two, writing stories before code when told "decide yourself" and
+committing only its own change, both versions did it right.
 
-- reopens a passed criterion when the code it covers changes
-- records the decision before committing a run of tweaks
-- asks whether a merged pull request approves the documents
-- finds a feature removed in one commit out of thirty
-- asks before a check that posts to a real webhook
-- finds what reformatted a file it did not touch
-- asks who will read the documents before naming people
-- runs a flaky model enough times to see it fail
-- files supplied rules word for word, apart from the artifacts
-
-In two more, writing stories before code when told "decide yourself" and
-committing only its own change, both versions passed. The
-[changelog](CHANGELOG.md) has every run.
+One trade-off was measured over ten runs: the new version mentions blocked work
+more often, because it now reopens criteria. A rule written to curb that made
+it worse and was removed. Each scenario ran once per version, so read these as
+differences, not rates; the [changelog](CHANGELOG.md) has every run.
 
 ## What it is for
 
