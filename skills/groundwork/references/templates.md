@@ -1,5 +1,8 @@
 # Artifact templates
 
+The example environment file keeps every variable with an empty value and marks
+which are secret and which are safe to expose to a client.
+
 With a filesystem, artifacts go to `docs/`. Without one, produce the same
 Markdown in the conversation, one document per message, naming the file each
 block belongs to.

@@ -29,7 +29,9 @@ translated while everything a person reads as a sentence is.
 
 Offering the short path is not skipping the process; a process nobody can
 afford is one nobody uses. "Start a new project" for a forty-line script is
-still a forty-line script.
+still a forty-line script. When it is borderline, one question settles it:
+"this looks small enough to just build; want me to, or should we scope it
+first?"
 
 ## Reconnaissance
 

@@ -163,6 +163,24 @@ status and open questions, this version filed them as written. A document the
 user supplies as binding counts as stated: requirements from it cite it and
 are not marked inferred.
 
+**A communication rule that made communication worse, and the defect it was
+hiding.** The user had shouted at an agent that kept closing every message with
+"CA-02.5 still blocked" in jargon. A rule asking to give each identifier its
+meaning and to say what is blocked once was tested with ten small-model runs
+of the same three short turns per version. It backfired: unprompted mentions
+of blocked criteria in the first reply went from 1 in 10 (0.7.0) to 9 in 10,
+the second reply repeated the unchanged criterion in 8 of 10 against 1 of 10,
+and identifiers left unexplained rose from 13 to 36. Telling the agent when to
+mention blocked work planted the habit of mentioning it. The rule, and the
+"do not repeat the blocked request" sentence from earlier in this release,
+were removed; nine runs without them: repetition 2 of 9, unexplained
+identifiers 16, close to 0.7.0. The first-reply mentions that remain (5 of
+10) come from criteria this release now reopens when their code changes.
+
+What the runs did show is a real defect: the validation line asks to name
+what is open, and agents filled `K` with blocked criteria, which put them in
+every closing. `K` now counts checklist items only.
+
 **A change nobody made is a question, not a fact.** While these changes were
 being written, the checker was reformatted on disk by the user's editor; the
 agent called it deliberate, committed it, and a stray keystroke saved a

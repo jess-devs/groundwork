@@ -18,9 +18,8 @@ before the next change.**
 
 ## Working language
 
-Write every artifact **and every message** in the language the user writes in.
-After a summary, re-read which language that is rather than defaulting to
-English.
+Write every artifact **and every message** in the language the user writes in;
+after a summary, check it again.
 
 Never translated: file and
 directory names (`00-contexto.md`, `features/`, `historias.md`; the feature slug
@@ -82,8 +81,7 @@ guess.
 
    When you finish verifying, gather the blocked criteria into one request:
    which ones, the single resource that unblocks them, and what you would do
-   with it. Do not repeat that request in later closings until the resource
-   appears or the user asks.
+   with it.
 
 4. **Leave the environment as you found it.** Test data created to verify a
    criterion is deleted once observed, including rows in real databases and
@@ -182,8 +180,7 @@ When editing a file that holds a secret, match the smallest unique fragment
 that does not contain the value (the port, the host, the flag), never the
 whole line.
 
-Keep an example file with empty values, marking which variables are secret and
-which are safe to expose to a client. If a secret has already been printed in
+Keep an example file with empty values. If a secret has already been printed in
 this session, say so plainly and recommend rotating it.
 
 ## Step 0: mode and environment
@@ -195,8 +192,7 @@ documentation would be: a script, a one-file utility, a throwaway spike, a
 typo, a rename, one well-specified function. Say so in one line, offer the
 short path, and do the work. Judge the size of the change, not the phrasing.
 When it is
-borderline, ask once: "this looks small enough to just build; want me to, or
-should we scope it first?"
+borderline, ask once whether to just build it.
 
 **Mode.** Inspect the workspace:
 
@@ -317,7 +313,8 @@ End every artifact presentation with this line, in the working language:
 
 `N` is the count of checklist items that apply to the artifact: run
 `check_docs.py --count <file>`. `M` and
-`K` always name what they count, unless they are zero. The results go in the
+`K` always name what they count, unless they are zero; `K` counts checklist
+items, never blocked criteria. The results go in the
 line, never into the artifact. Closing a story updates `04-calidad.md` and
 `historias.md`, so it ends with the same line.
 
