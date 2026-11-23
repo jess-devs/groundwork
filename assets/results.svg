@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="330" viewBox="0 0 760 330" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
   <title>Groundwork avoids 9 of 11 mistakes agents made in real projects; correct runs out of 5, before and now</title>
-  <rect width="760" height="300" rx="12" fill="#ffffff" stroke="#d1d9e0"/>
+  <rect width="760" height="330" rx="12" fill="#ffffff" stroke="#d1d9e0"/>
 
   <text x="32" y="58" font-size="26" font-weight="700" fill="#1f2328">Avoids <tspan fill="#0969da">9 of 11</tspan> mistakes agents made in real projects</text>
 
@@ -10,33 +10,39 @@
   <text x="128" y="106" font-size="13" fill="#1f2328">Now</text>
 
   <g font-size="12" fill="#59636e" text-anchor="middle">
-    <line x1="330" y1="124" x2="330" y2="236" stroke="#d1d9e0"/>
-    <line x1="480" y1="124" x2="480" y2="236" stroke="#d1d9e0" stroke-dasharray="3 3"/>
-    <line x1="630" y1="124" x2="630" y2="236" stroke="#d1d9e0" stroke-dasharray="3 3"/>
-    <text x="330" y="254">0</text>
-    <text x="480" y="254">50%</text>
-    <text x="630" y="254">100%</text>
+    <line x1="350" y1="126" x2="350" y2="266" stroke="#d1d9e0"/>
+    <line x1="540" y1="126" x2="540" y2="266" stroke="#d1d9e0" stroke-dasharray="3 3"/>
+    <line x1="730" y1="126" x2="730" y2="266" stroke="#d1d9e0" stroke-dasharray="3 3"/>
+    <text x="350" y="284">0</text>
+    <text x="540" y="284">50%</text>
+    <text x="730" y="284">100%</text>
   </g>
 
   <g font-size="14" fill="#1f2328">
-    <text x="32" y="150">Reopens a check when its code changes</text>
-    <line x1="330" y1="146" x2="630" y2="146" stroke="#afb8c1" stroke-width="3"/>
-    <circle cx="330" cy="146" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
-    <circle cx="630" cy="146" r="7" fill="#0969da" stroke="#ffffff" stroke-width="2"/>
-    <text x="660" y="151" font-size="13" font-weight="600" fill="#1f2328">0/5 → 5/5</text>
+    <text x="32" y="160">Reopens a check when its code changes</text>
+    <line x1="350" y1="156" x2="730" y2="156" stroke="#afb8c1" stroke-width="3"/>
+    <circle cx="350" cy="156" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="730" cy="156" r="7" fill="#0969da" stroke="#ffffff" stroke-width="2"/>
 
-    <text x="32" y="190">Spots a feature removed in a buried commit</text>
-    <line x1="330" y1="186" x2="630" y2="186" stroke="#afb8c1" stroke-width="3"/>
-    <circle cx="330" cy="186" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
-    <circle cx="630" cy="186" r="7" fill="#0969da" stroke="#ffffff" stroke-width="2"/>
-    <text x="660" y="191" font-size="13" font-weight="600" fill="#1f2328">0/5 → 5/5</text>
+    <text x="32" y="204">Spots a feature removed in a buried commit</text>
+    <line x1="350" y1="200" x2="730" y2="200" stroke="#afb8c1" stroke-width="3"/>
+    <circle cx="350" cy="200" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="730" cy="200" r="7" fill="#0969da" stroke="#ffffff" stroke-width="2"/>
 
-    <text x="32" y="230">Asks before treating a merge as approval</text>
-    <line x1="450" y1="226" x2="570" y2="226" stroke="#afb8c1" stroke-width="3"/>
-    <circle cx="450" cy="226" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
-    <circle cx="570" cy="226" r="7" fill="#0969da" stroke="#ffffff" stroke-width="2"/>
-    <text x="660" y="231" font-size="13" font-weight="600" fill="#1f2328">2/5 → 4/5</text>
+    <text x="32" y="248">Asks before treating a merge as approval</text>
+    <line x1="502" y1="244" x2="654" y2="244" stroke="#afb8c1" stroke-width="3"/>
+    <circle cx="502" cy="244" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="654" cy="244" r="7" fill="#0969da" stroke="#ffffff" stroke-width="2"/>
   </g>
 
-  <text x="32" y="286" font-size="12" fill="#59636e">Tested on Claude Haiku and DeepSeek V4 Flash</text>
+  <g font-size="12" text-anchor="middle">
+    <text x="350" y="141" fill="#59636e">0/5</text>
+    <text x="730" y="141" fill="#1f2328" font-weight="600">5/5</text>
+    <text x="350" y="185" fill="#59636e">0/5</text>
+    <text x="730" y="185" fill="#1f2328" font-weight="600">5/5</text>
+    <text x="502" y="229" fill="#59636e">2/5</text>
+    <text x="654" y="229" fill="#1f2328" font-weight="600">4/5</text>
+  </g>
+
+  <text x="32" y="316" font-size="12" fill="#59636e">Tested on Claude Haiku and DeepSeek V4 Flash</text>
 </svg>
