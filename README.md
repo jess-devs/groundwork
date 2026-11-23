@@ -57,13 +57,33 @@ criterion is observable is still for a person to judge.
 
 ## Measured
 
-![Groundwork 0.7.0 against the current version, eleven scenarios](assets/results.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/results-dark.svg">
+  <img alt="How often the agent got it wrong out of 10 runs, 0.7.0 against the current version. Unexplained IDs in the validation line: 1 to 0. Repeats an unchanged blocked item: 1 to 3. Mentions blocked items nobody asked about: 1 to 5. Leaves an ID without its meaning: 7 to 9." src="assets/results-light.svg">
+</picture>
 
-Each scenario reproduces a failure from real sessions, run once per version.
-One run per scenario shows a difference, not a rate. Where a rule changed
-nothing, or made things worse, the [changelog](CHANGELOG.md) says so: a rule
-about how to mention blocked work was measured over ten runs, made agents repeat
-blocked items more often, and was removed.
+This is the one behaviour measured over ten runs per version, and the current
+version does worse on three of four counts. It now reopens a criterion when the
+code it covers changes, so it has more blocked work to report, and it reports
+it. A rule written to fix this made it worse (9 of 10 runs) and was removed.
+
+The other changes were checked once per version, each on a scenario taken from
+a failure in a real session. One run shows a difference, not a rate. In nine,
+0.7.0 failed and the current version did not:
+
+- reopens a passed criterion when the code it covers changes
+- records the decision before committing a run of tweaks
+- asks whether a merged pull request approves the documents
+- finds a feature removed in one commit out of thirty
+- asks before a check that posts to a real webhook
+- finds what reformatted a file it did not touch
+- asks who will read the documents before naming people
+- runs a flaky model enough times to see it fail
+- files supplied rules word for word, apart from the artifacts
+
+In two more, writing stories before code when told "decide yourself" and
+committing only its own change, both versions passed. The
+[changelog](CHANGELOG.md) has every run.
 
 ## What it is for
 
