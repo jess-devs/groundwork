@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.8.0 - 2026-11-23
 
 The first changes taken from real sessions rather than from a suite or a
 premortem: ten sessions across three projects, read end to end.

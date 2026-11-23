@@ -3,7 +3,7 @@ name: groundwork
 description: "Turns an idea or a feature request into approved, versioned documentation before any code is written, then keeps the implementation tied to that documentation. Use this whenever someone wants to start a new project, add a feature to an existing codebase, plan before coding, write requirements or user stories, pick a methodology, or record an architecture decision. Use it especially when the request is vague enough that writing code immediately would mean guessing, and when someone asks to skip the documentation or wants the code written straight away. Use it whenever the repository already contains a docs/ folder in the format below, including for work that is not documentation at all: fixing a bug, changing configuration, verifying or closing an acceptance criterion, or handing part of the work to another skill and taking it back. Those are the moments the recorded decisions exist to govern, and the moments they are most often bypassed."
 license: Apache-2.0
 metadata:
-  version: 0.7.0
+  version: 0.8.0
 ---
 
 # Groundwork
