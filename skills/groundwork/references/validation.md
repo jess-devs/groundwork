@@ -166,6 +166,11 @@ standing on its own is the part of the report that nobody can check.
 - [ ] Every `pass` cites something observed, not something inferred. If the
       evidence is a design guarantee, a library's behaviour, or a code review,
       the result is `blocked`.
+- [ ] When the behaviour comes from something non-deterministic (a language
+      model, a random source, a network race), the evidence says how many runs
+      it rests on ("19 of 20 runs"), and a criterion that must always hold
+      passes only if every run held. Run it at least twenty times, or say why
+      fewer. One run is a sample, not a result.
 - [ ] Any criterion nobody could ever observe is rewritten, not approved. A
       criterion that could be observed with a resource you do not have is not
       rewritten: it is `blocked`, and the resource is named.

@@ -143,6 +143,26 @@ criterion cell are now expanded. The planned split of `04-calidad.md` into a
 current-state file and a history was dropped: on that log the agent read the
 current result correctly without it, and the defect was in the tool.
 
+**One run of a language model was recorded as a pass.** A product built on a
+model was verified with a single run per question, minutes after the agent had
+seen the same question give different answers. Verifying something
+non-deterministic now says how many runs the result rests on, runs at least
+twenty times or says why not, and passes an "always" criterion only if every
+run held. Against a stand-in that drops its citation one time in twenty, 0.7.0
+ran seven questions, saw seven citations and marked the story verified; this
+version ran thirty-three, found two without a citation and recorded a fail.
+(The same run also flagged that the stand-in had an uncommitted edit it had
+not made, and measured both versions before going on.)
+
+**Supplied context had nowhere to go.** Asked to keep a challenge statement
+"so that any AI has it", the agent invented a file among the artifacts, gave it
+a draft header and added questions to it. `templates.md` now says supplied
+material goes word for word in `docs/referencias/` under one provenance line,
+linked from `AGENTS.md`; 0.7.0 put the same rules loose in `docs/` with a
+status and open questions, this version filed them as written. A document the
+user supplies as binding counts as stated: requirements from it cite it and
+are not marked inferred.
+
 **A change nobody made is a question, not a fact.** While these changes were
 being written, the checker was reformatted on disk by the user's editor; the
 agent called it deliberate, committed it, and a stray keystroke saved a

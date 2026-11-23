@@ -4,6 +4,12 @@ With a filesystem, artifacts go to `docs/`. Without one, produce the same
 Markdown in the conversation, one document per message, naming the file each
 block belongs to.
 
+Material the user supplies so that agents have it (a brief, a challenge
+statement, rules, notes) goes in `docs/referencias/`, one file named for what
+it is, kept word for word under one first line: "Supplied by the user on
+<date>; original text, unedited." Point at it from the `AGENTS.md` table. It is
+quoted, not rewritten into these templates, and the checker skips it.
+
 Use these structures exactly. Translate the headings into the user's working
 language; keep the file names fixed.
 
@@ -132,6 +138,11 @@ Source: <the stated constraint this derives from>
 
 A non-functional requirement without a measurable threshold and a traceable
 source is filler. Ask for the number instead of choosing one.
+
+A document the user supplied as binding (a challenge statement, a contract, a
+client brief, a regulation) counts as something the user stated. A requirement
+taken from it cites the file in `docs/referencias/` as its source and is not
+marked inferred.
 
 ---
 
