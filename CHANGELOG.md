@@ -173,8 +173,8 @@ the second reply repeated the unchanged criterion in 8 of 10 against 1 of 10,
 and identifiers left unexplained rose from 13 to 36. Telling the agent when to
 mention blocked work planted the habit of mentioning it. The rule, and the
 "do not repeat the blocked request" sentence from earlier in this release,
-were removed; nine runs without them: repetition 2 of 9, unexplained
-identifiers 16, close to 0.7.0. The first-reply mentions that remain (5 of
+were removed; ten runs without them: repetition 3 of 10, unexplained
+identifiers 20, much closer to 0.7.0 than with the rule. The first-reply mentions that remain (5 of
 10) come from criteria this release now reopens when their code changes.
 
 What the runs did show is a real defect: the validation line asks to name
