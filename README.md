@@ -33,13 +33,13 @@ your agent:
 ## Install
 
 ```sh
-npx skills add jess-devs/groundwork
+npx skills add jess-devs/groundwork -g
 ```
 
 This uses the [`skills` CLI](https://github.com/vercel-labs/skills) and installs
-into the current project at `.claude/skills/groundwork`.
+the skill for every project, so `npx skills update` keeps it current.
 
-- Add `-g` to install for every project.
+- Leave out `-g` to install it in the current project only.
 - Add `--agent claude-code` to install for one agent only.
 - `npx skills update` updates it, and `npx skills remove groundwork` removes it.
 
