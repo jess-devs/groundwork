@@ -1,56 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="470" viewBox="0 0 760 470" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
-  <title>Groundwork against 0.7.0: 9 of 11 real-session failures avoided, and the trade-off measured over 10 runs</title>
-  <rect width="760" height="470" rx="12" fill="#ffffff" stroke="#d1d9e0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title>Groundwork avoids 9 of 11 mistakes agents made in real projects; correct runs out of 5, before and now</title>
+  <rect width="760" height="300" rx="12" fill="#ffffff" stroke="#d1d9e0"/>
 
-  <text x="32" y="92" font-size="64" font-weight="700" fill="#0969da">9 of 11</text>
-  <text x="290" y="62" font-size="18" font-weight="600" fill="#1f2328">mistakes from real agent sessions that</text>
-  <text x="290" y="86" font-size="18" font-weight="600" fill="#1f2328">0.7.0 still makes and this version avoids</text>
-  <text x="290" y="110" font-size="13" fill="#59636e">Same scenario, same model, only the skill swapped.</text>
+  <text x="32" y="58" font-size="26" font-weight="700" fill="#1f2328">Avoids <tspan fill="#0969da">9 of 11</tspan> mistakes agents made in real projects</text>
 
-  <line x1="32" y1="140" x2="728" y2="140" stroke="#d1d9e0"/>
-
-  <text x="32" y="176" font-size="16" font-weight="600" fill="#1f2328">The trade-off: it talks more about blocked work</text>
-  <text x="32" y="198" font-size="13" fill="#59636e">Times out of 10 the agent did this over three short turns. Fewer is better.</text>
-
-  <circle cx="38" cy="224" r="6" fill="#8c959f"/>
-  <text x="50" y="228" font-size="13" fill="#1f2328">0.7.0</text>
-  <circle cx="110" cy="224" r="6" fill="#0969da"/>
-  <text x="122" y="228" font-size="13" fill="#1f2328">This version</text>
+  <circle cx="38" cy="102" r="6" fill="#8c959f"/>
+  <text x="50" y="106" font-size="13" fill="#1f2328">Before</text>
+  <circle cx="116" cy="102" r="6" fill="#0969da"/>
+  <text x="128" y="106" font-size="13" fill="#1f2328">Now</text>
 
   <g font-size="12" fill="#59636e" text-anchor="middle">
-    <line x1="330" y1="246" x2="330" y2="414" stroke="#d1d9e0"/>
-    <line x1="530" y1="246" x2="530" y2="414" stroke="#d1d9e0" stroke-dasharray="3 3"/>
-    <line x1="730" y1="246" x2="730" y2="414" stroke="#d1d9e0" stroke-dasharray="3 3"/>
-    <text x="330" y="432">0</text>
-    <text x="530" y="432">5</text>
-    <text x="730" y="432">10</text>
+    <line x1="330" y1="124" x2="330" y2="236" stroke="#d1d9e0"/>
+    <line x1="480" y1="124" x2="480" y2="236" stroke="#d1d9e0" stroke-dasharray="3 3"/>
+    <line x1="630" y1="124" x2="630" y2="236" stroke="#d1d9e0" stroke-dasharray="3 3"/>
+    <text x="330" y="254">0</text>
+    <text x="480" y="254">50%</text>
+    <text x="630" y="254">100%</text>
   </g>
 
   <g font-size="14" fill="#1f2328">
-    <text x="32" y="272">Puts criteria in the validation line</text>
-    <line x1="370" y1="268" x2="330" y2="268" stroke="#afb8c1" stroke-width="3"/>
-    <circle cx="370" cy="268" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
-    <circle cx="330" cy="268" r="7" fill="#0969da" stroke="#ffffff" stroke-width="2"/>
-    <text x="388" y="272" font-size="13" fill="#59636e">1 → 0</text>
+    <text x="32" y="150">Reopens a check when its code changes</text>
+    <line x1="330" y1="146" x2="630" y2="146" stroke="#afb8c1" stroke-width="3"/>
+    <circle cx="330" cy="146" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="630" cy="146" r="7" fill="#0969da" stroke="#ffffff" stroke-width="2"/>
+    <text x="660" y="151" font-size="13" font-weight="600" fill="#1f2328">0/5 → 5/5</text>
 
-    <text x="32" y="312">Repeats a blocked item that didn't change</text>
-    <line x1="370" y1="308" x2="450" y2="308" stroke="#afb8c1" stroke-width="3"/>
-    <circle cx="370" cy="308" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
-    <circle cx="450" cy="308" r="7" fill="#0969da" stroke="#ffffff" stroke-width="2"/>
-    <text x="468" y="312" font-size="13" fill="#59636e">1 → 3</text>
+    <text x="32" y="190">Spots a feature removed in a buried commit</text>
+    <line x1="330" y1="186" x2="630" y2="186" stroke="#afb8c1" stroke-width="3"/>
+    <circle cx="330" cy="186" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="630" cy="186" r="7" fill="#0969da" stroke="#ffffff" stroke-width="2"/>
+    <text x="660" y="191" font-size="13" font-weight="600" fill="#1f2328">0/5 → 5/5</text>
 
-    <text x="32" y="352">Mentions blocked items nobody asked about</text>
-    <line x1="370" y1="348" x2="530" y2="348" stroke="#afb8c1" stroke-width="3"/>
-    <circle cx="370" cy="348" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
-    <circle cx="530" cy="348" r="7" fill="#0969da" stroke="#ffffff" stroke-width="2"/>
-    <text x="548" y="352" font-size="13" fill="#59636e">1 → 5</text>
-
-    <text x="32" y="392">Uses an ID without saying what it is</text>
-    <line x1="610" y1="388" x2="690" y2="388" stroke="#afb8c1" stroke-width="3"/>
-    <circle cx="610" cy="388" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
-    <circle cx="690" cy="388" r="7" fill="#0969da" stroke="#ffffff" stroke-width="2"/>
-    <text x="708" y="392" font-size="13" fill="#59636e">7 → 9</text>
+    <text x="32" y="230">Asks before treating a merge as approval</text>
+    <line x1="450" y1="226" x2="570" y2="226" stroke="#afb8c1" stroke-width="3"/>
+    <circle cx="450" cy="226" r="7" fill="#8c959f" stroke="#ffffff" stroke-width="2"/>
+    <circle cx="570" cy="226" r="7" fill="#0969da" stroke="#ffffff" stroke-width="2"/>
+    <text x="660" y="231" font-size="13" font-weight="600" fill="#1f2328">2/5 → 4/5</text>
   </g>
 
-  <text x="32" y="458" font-size="12" fill="#59636e">Claude Haiku. Scenarios: one run per version. Trade-off: 10 runs per version. Details in CHANGELOG.md.</text>
+  <text x="32" y="286" font-size="12" fill="#59636e">Tested on Claude Haiku and DeepSeek V4 Flash</text>
 </svg>

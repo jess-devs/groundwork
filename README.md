@@ -3,7 +3,7 @@
 An [Agent Skill](https://github.com/anthropics/skills) that writes down what a
 feature must do before any code exists, then holds the code to it.
 
-![9 of 11 mistakes from real agent sessions that 0.7.0 still makes and this version avoids. Trade-off over 10 runs: it mentions blocked items nobody asked about 5 times instead of 1, and repeats an unchanged blocked item 3 times instead of 1.](assets/results.svg)
+![Avoids 9 of 11 mistakes agents made in real projects. Correct runs out of 5, before and now: reopens a check when its code changes, 0% to 100%; spots a feature removed in a buried commit, 0% to 100%; asks before treating a merge as approval, 40% to 80%.](assets/results.svg)
 
 ## The problem
 
@@ -80,7 +80,7 @@ groundwork, your agent:
 In the other two, writing stories before code when told "decide yourself" and
 committing only its own change, both versions did it right.
 
-One trade-off was measured over ten runs: the new version mentions blocked work
+Three of those mistakes were replayed five more times per version on DeepSeek V4 Flash; the chart shows how often each version got them right. One trade-off was measured over ten runs: the new version mentions blocked work
 more often, because it now reopens criteria. A rule written to curb that made
 it worse and was removed. Each scenario ran once per version, so read these as
 differences, not rates; the [changelog](CHANGELOG.md) has every run.
